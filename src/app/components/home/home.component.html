@@ -17,7 +17,7 @@
                 <a class="nav-link" data-bs-toggle="tab" href="#importar">Acciones</a>
             </li>
             <li class="nav-item">
-                <a [routerLink]="['/login']" class="nav-link" data-bs-toggle="tab" href="#importar">Logout</a>
+                <a [routerLink]="['/landing']" class="nav-link" data-bs-toggle="tab" href="#importar">Logout</a>
             </li>
         </ul>
 
@@ -25,8 +25,84 @@
             <div class="tab-pane fade active show" id="home">
                 <div class="card my-2">
                     <div class="card-body">
-                        <h1 class="card-title">Hola carlos!! bienvenido a</h1>
-                        <h2 class="card-title">🐸<strong>CroAPP</strong></h2>
+                        <!-- <h1 class="card-title">Hola carlos!! bienvenido a</h1>
+                        <h2 class="card-title">🐸<strong>CroAPP</strong></h2> -->
+                        <div class="mt-4">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="card xbg-dark p-2 h-100">
+                                        <div class="d-flex flex-column">
+                                          <div class="p-2">
+                                              <img width="100%" src="https://www.finanzaspracticas.com.co/assets/images/cards/etapas-de-la-vida-sq-360-360.jpg">
+                                          </div>
+                                          <div class="p-2">
+                                              <div class="xtext-white">
+                                                  <div class="p-2">
+                                                      <h5 class="mt-4 xtext-white">Etapas de la vida</h5>
+                                                      <p class="xp-2 text-left">Tener una buena salud financiera es muy importante en la medida en la que vamos adquiriendo mayores responsabilidades a lo largo...</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <a class="mt-4 xtext-white btn btn-info align-text-bottom"href="https://www.finanzaspracticas.com.co/planificar/etapas-de-la-vida">Saber más</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card xbg-dark p-2 h-100">
+                                        <div class="d-flex flex-column">
+                                          <div class="p-2">
+                                              <img width="100%" src="https://www.finanzaspracticas.com.co/assets/images/cards/aprende-a-invertir-sq-360-360.jpg">
+                                          </div>
+                                          <div class="p-2">
+                                              <div class="xtext-white">
+                                                  <div class="p-2">
+                                                      <h5 class="mt-4 xtext-white">Aprende a invertir</h5>
+                                                      <p class="xp-2 text-left">Llegó el momento de poner tus ahorros a trabajar. De poco sirve el esfuerzo en recortar tus gastos y aumentar los ahorros si...</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <a class="mt-4 xtext-white btn btn-info align-text-bottom"href="https://www.finanzaspracticas.com.co/invertir/aprende-a-invertir">Saber más</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card xbg-dark p-2 h-100">
+                                        <div class="d-flex flex-column">
+                                          <div class="p-2">
+                                              <img width="100%" src="https://www.finanzaspracticas.com.co/assets/images/cards/ahorro-sq-270-270.jpg">
+                                          </div>
+                                          <div class="p-2">
+                                              <div class="xtext-white">
+                                                  <div class="p-2">
+                                                      <h5 class="mt-4 xtext-white">Ahorro</h5>
+                                                      <p class="xp-2 text-left">El ahorro es uno de los pilares de las finanzas personales. Mediante el ahorro puedes llevar una vida financieramente estable que te permitirá...</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <a class="mt-4 xtext-white btn btn-info align-text-bottom"href="https://www.finanzaspracticas.com.co/planificar/ahorro">Saber más</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="card xbg-dark p-2 h-100">
+                                        <div class="d-flex flex-column">
+                                          <div class="p-2">
+                                              <img width="100%" src="https://www.finanzaspracticas.com.co/assets/images/cards/calculadoras-sq-360-360.jpg">
+                                          </div>
+                                          <div class="p-2">
+                                              <div class="xtext-white">
+                                                  <div class="p-2">
+                                                      <h5 class="mt-4 xtext-white">Calculadora</h5>
+                                                      <p class="xp-2 text-left">Logra un mejor control de tus finanzas haciendo uso de estas poderosas herramientas, que te ayudarán, entre otras cosas, a saber a dónde va tu...</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <a class="mt-4 xtext-white btn btn-info align-text-bottom"href="https://www.finanzaspracticas.com.co/recursos/calculadoras">Saber más</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,7 +168,8 @@
                                 <span class="badge pill bg-danger">X</span>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary my-2">Crear nuevo destino</button>
+                        <button type="button" class="btn btn-primary m-2">Crear nuevo destino</button>
+                        <button type="button" class="btn btn-primary m-2">Modificar destino</button>
                     </div>
                     <div class="card-body">
                         <h1 class="card-title">Mis fuentes de ingresos</h1>
@@ -327,6 +404,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <button type="button" class="btn btn-primary my-2">Agregar fecha</button>
                             </div>
                         </div>
                     </div>
