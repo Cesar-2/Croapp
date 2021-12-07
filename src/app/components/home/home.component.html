@@ -110,75 +110,67 @@
             <div class="tab-pane fade" id="ingresos">
                 <div class="card my-2">
                     <div class="card-body">
-                        <h1 class="card-title">Mis destinos</h1>
-                        <div class="row">
-                            <div class="col-4 my-2">
-                                <h6 class="card-subtitle">Gastos generales</h6>
-                            </div>
-                            <div class="col-7 my-2">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 100%;"></div>
-                                </div>
-                            </div>
-                            <div class="col my-2">
-                                <span class="badge pill bg-danger">X</span>
-                            </div>
-
-                            <div class="col-4 my-2">
-                                <h6 class="card-subtitle">Ahorros</h6>
-                            </div>
-                            <div class="col-7 my-2">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 100%;"></div>
-                                </div>
-                            </div>
-                            <div class="col my-2">
-                                <span class="badge pill bg-danger">X</span>
-                            </div>
-
-                            <div class="col-4 my-2">
-                                <h6 class="card-subtitle">Negocio</h6>
-                            </div>
-                            <div class="col-7 my-2">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 100%;"></div>
-                                </div>
-                            </div>
-                            <div class="col my-2">
-                                <span class="badge pill bg-danger">X</span>
-                            </div>
-
-                            <div class="col-4 my-2">
-                                <h6 class="card-subtitle">Bolsillo comida</h6>
-                            </div>
-                            <div class="col-7 my-2">
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
-                                        role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 100%;"></div>
-                                </div>
-                            </div>
-                            <div class="col my-2">
-                                <span class="badge pill bg-danger">X</span>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-primary m-2">Crear nuevo destino</button>
-                        <button type="button" class="btn btn-primary m-2">Modificar destino</button>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title">Mis fuentes de ingresos</h1>
+                        <h1 class="card-title">Mis planes</h1>
+                        <button type="button" class="btn btn-primary m-2">Crear nuevo plan</button>
                         <table class="table table-hover my-2">
                             <thead>
                                 <tr>
-                                    <th class="text-center align-middle" scope="col">Fuente</th>
-                                    <th class="text-center align-middle" scope="col">Monto</th>
-                                    <th class="text-center align-middle" scope="col">Destino</th>
+                                    <th class="text-center align-middle" scope="col">Plan</th>
+                                    <th class="text-center align-middle" scope="col">Gastos deseados</th>
+                                    <th class="text-center align-middle" scope="col">Gastos reales</th>
+                                    <th class="text-center align-middle" scope="col">Delta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center align-middle">Gastos generales</td>
+                                    <td class="text-center align-middle">$1.500</td>
+                                    <td class="text-center align-middle">$1.500</td>
+                                    <td class="text-center align-middle"><span
+                                        class="badge rounded-pill bg-success">$1.500</span></td>
+                                    <td class="text-center align-middle" scope="row"><button type="button"
+                                        class="btn btn-outline-danger">Eliminar</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center align-middle">Ahorros</td>
+                                    <td class="text-center align-middle">$1.500</td>
+                                    <td class="text-center align-middle">$1.500</td>
+                                    <td class="text-center align-middle"><span
+                                        class="badge rounded-pill bg-success">$1.500</span></td>
+                                    <td class="text-center align-middle" scope="row"><button type="button"
+                                        class="btn btn-outline-danger">Eliminar</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center align-middle">Negocio</td>
+                                    <td class="text-center align-middle">$1.500</td>
+                                    <td class="text-center align-middle">$1.500</td>
+                                    <td class="text-center align-middle"><span
+                                        class="badge rounded-pill bg-success">$1.500</span></td>
+                                    <td class="text-center align-middle" scope="row"><button type="button"
+                                        class="btn btn-outline-danger">Eliminar</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center align-middle">Bolsillo comida</td>
+                                    <td class="text-center align-middle">$1.500</td>
+                                    <td class="text-center align-middle">$1.500</td>
+                                    <td class="text-center align-middle"><span
+                                        class="badge rounded-pill bg-success">$1.500</span></td>
+                                    <td class="text-center align-middle" scope="row"><button type="button"
+                                        class="btn btn-outline-danger">Eliminar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-body">
+                        <h1>Titulo detalle</h1>
+                        
+                        <button type="button" class="btn btn-primary m-2">Agregar</button>
+                        <table class="table table-hover my-2">
+                            <thead>
+                                <tr>
+                                    <th class="text-center align-middle" scope="col">Nombre</th>
+                                    <th class="text-center align-middle" scope="col">Costo</th>
+                                    <th class="text-center align-middle" scope="col">Fecha</th>
                                     <th class="text-center align-middle" scope="col">Acciones</th>
                                 </tr>
                             </thead>
@@ -190,7 +182,7 @@
                                     <td class="text-center align-middle"><span
                                             class="badge rounded-pill bg-light">Gastos generales</span></td>
                                     <td class="text-center align-middle" scope="row"><button type="button"
-                                            class="btn btn-outline-primary">Redestinar ingreso</button></td>
+                                            class="btn btn-outline-danger">Eliminar</button></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center align-middle">ScotiaBank</td>
@@ -199,7 +191,7 @@
                                     <td class="text-center align-middle"><span
                                             class="badge rounded-pill bg-light">Negocio</span></td>
                                     <td class="text-center align-middle" scope="row"><button type="button"
-                                            class="btn btn-outline-primary">Redestinar ingreso</button></td>
+                                            class="btn btn-outline-danger">Eliminar</button></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center align-middle">UTP</td>
@@ -208,7 +200,7 @@
                                     <td class="text-center align-middle"><span
                                             class="badge rounded-pill bg-light">Ahorros</span></td>
                                     <td class="text-center align-middle" scope="row"><button type="button"
-                                            class="btn btn-outline-primary">Redestinar ingreso</button></td>
+                                            class="btn btn-outline-danger">Eliminar</button></td>
                                 </tr>
                                 <tr>
                                     <td class="text-center align-middle">Cesar</td>
@@ -217,7 +209,7 @@
                                     <td class="text-center align-middle"><span
                                             class="badge rounded-pill bg-light">Bolsillo comida</span></td>
                                     <td class="text-center align-middle" scope="row"><button type="button"
-                                            class="btn btn-outline-primary">Redestinar ingreso</button></td>
+                                            class="btn btn-outline-danger">Eliminar</button></td>
                                 </tr>
                             </tbody>
                         </table>
