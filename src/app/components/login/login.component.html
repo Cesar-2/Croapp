@@ -16,79 +16,56 @@
                             <h1 class="card-title text-dark">🐸<strong>CroAPP</strong></h1>
                             <h6 class="card-subtitle mb-2 text-muted">Sign Up</h6>
                             <p class="card-text">
-                            <fieldset>
-                                <div class="form-group form-floating">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="floatingInput"
-                                                    placeholder="name@example.com">
-
+                            <form (ngSubmit)="runSignUp()" [formGroup]="signUpForm">
+                                <fieldset>
+                                    <div class="form-group form-floating">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input formControlName="first_name" type="text" class="form-control" id="floatingInput"
+                                                        placeholder="Nombres">
+    
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input formControlName="last_name" type="text" class="form-control" id="floatingInput"
+                                                        placeholder="Apellidos">
+    
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="floatingInput"
-                                                    placeholder="name@example.com">
-
-                                            </div>
+                                        <div class="form-floating my-3">
+                                            <input formControlName="citizen_code" type="text" class="form-control" id="floatingInput" placeholder="Cédula">
                                         </div>
-                                    </div>
-                                    <div class="form-floating my-3">
-                                        <input type="email" class="form-control" id="floatingInput"
-                                            placeholder="name@example.com">
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-floating">
-                                                <input type="password" class="form-control" id="floatingPassword"
-                                                    placeholder="Password">
-
-                                            </div>
+    
+                                        <div class="form-floating my-3">
+                                            <input formControlName="phone_number" type="text" class="form-control" id="floatingInput" placeholder="Número celular">
                                         </div>
-                                        <div class="col">
-                                            <div class="form-floating">
-                                                <input type="password" class="form-control" id="floatingPassword"
-                                                    placeholder="Password">
-
-                                            </div>
+                                        <div class="form-floating my-3">
+                                            <input formControlName="email" type="email" class="form-control" id="floatingInput"
+                                                placeholder="E-mail">
+    
                                         </div>
-                                    </div>
-                                    <div class="form-floating my-3">
-                                        <input type="" class="form-control" id="floatingInput" placeholder="name@example.com">
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="floatingPassword"
-                                                    placeholder="Password">
-
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input formControlName="password" type="password" class="form-control" id="floatingPassword"
+                                                        placeholder="Contraseña">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" id="floatingPassword"
-                                                    placeholder="Password">
-
+                                            <div class="col">
+                                                <div class="form-floating">
+                                                    <input type="password" class="form-control" id="floatingPassword"
+                                                        placeholder="Contraseña">
+    
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-floating my-3">
-                                        <input type="" class="form-control" id="floatingInput" placeholder="name@example.com">
-
-                                    </div>
-                                    <div class="container">
-                                        <div class="form-check w-50">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                                checked>
-                                            <label class="form-check-label text-dark" for="flexCheckChecked">Remember me</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <a [routerLink]="['/Home']" class="card-link btn btn-dark">Sign Up</a>
+                                    <button type="submit" class="card-link btn btn-dark">Login</button>
+                                </fieldset>
+                            </form>
                             <!-- <a [routerLink]="['/login']" class="card-link btn btn-secondary">Login</a> -->
                         </div>
                 </div>
