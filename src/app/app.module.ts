@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +9,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './core/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,16 +19,25 @@ import { HttpClientModule } from '@angular/common/http';
     NavComponent,
     FooterComponent,
     LoginComponent,
-    SignUpComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
+  bootstrap: [AppComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

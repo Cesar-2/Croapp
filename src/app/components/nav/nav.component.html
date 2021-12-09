@@ -7,10 +7,12 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <form  class="d-flex" [formGroup]="loginForm">
-            <input formControlName="email" class="form-control me-sm-2 mx-2" type="text" placeholder="Email-address">
-            <input formControlName="password" class="form-control me-sm-2 mx-2" type="password" placeholder="Password">
-            <button (click)="runAuth()" type="button" class="card-link btn btn-dark">Login</button>
+        <form class="d-flex" [formGroup]="loginForm">
+            <input formControlName="email" class="form-control me-sm-2 mx-2" type="text"
+                placeholder="Correo electrónico">
+            <input formControlName="password" class="form-control me-sm-2 mx-2" type="password"
+                placeholder="Contraseña">
+            <button (click)="runAuth()" type="button" class="card-link btn btn-dark">Ingresar</button>
             <!-- <a [routerLink]="['/']" class="card-link btn btn-dark">SignUp</a> -->
         </form>
 

@@ -1,73 +1,82 @@
 <app-nav></app-nav>
 <div class="mt-4">
-    <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white" style="padding-top:58px; background-image: url('https://c.tenor.com/agZ8PxiYWPsAAAAi/pepemoney-money-rain.gif');">
+    <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+        style="padding-top:58px; background-image: url('https://c.tenor.com/agZ8PxiYWPsAAAAi/pepemoney-money-rain.gif');">
         <div class="row h-100">
             <div class="col my-auto">
                 <div class="w-100 h-100 py-4">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/kHFoEGecp24" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/kHFoEGecp24"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
                 <div class="">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-mtwY9GPE7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/-mtwY9GPE7k"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
             </div>
             <div class="col my-auto">
                 <div class="col d-flex justify-content-center">
-                        <div class="card card-body xbg-dark">
-                            <h1 class="card-title text-dark">🐸<strong>CroAPP</strong></h1>
-                            <h6 class="card-subtitle mb-2 text-muted">Sign Up</h6>
-                            <p class="card-text">
-                            <form (ngSubmit)="runSignUp()" [formGroup]="signUpForm">
-                                <fieldset>
-                                    <div class="form-group form-floating">
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="form-floating">
-                                                    <input formControlName="first_name" type="text" class="form-control" id="floatingInput"
-                                                        placeholder="Nombres">
-    
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-floating">
-                                                    <input formControlName="last_name" type="text" class="form-control" id="floatingInput"
-                                                        placeholder="Apellidos">
-    
-                                                </div>
+                    <div class="card card-body xbg-dark">
+                        <h1 class="card-title text-dark">🐸<strong>CroAPP</strong></h1>
+                        <h6 class="card-subtitle mb-2 text-muted">Registro</h6>
+                        <p class="card-text">
+                        <form (ngSubmit)="runSignUp()" [formGroup]="signUpForm">
+                            <fieldset>
+                                <div class="form-group form-floating">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-floating">
+                                                <input formControlName="first_name" type="text" class="form-control"
+                                                    id="floatingInput" placeholder="Nombres">
+
                                             </div>
                                         </div>
-                                        <div class="form-floating my-3">
-                                            <input formControlName="citizen_code" type="text" class="form-control" id="floatingInput" placeholder="Cédula">
-                                        </div>
-    
-                                        <div class="form-floating my-3">
-                                            <input formControlName="phone_number" type="text" class="form-control" id="floatingInput" placeholder="Número celular">
-                                        </div>
-                                        <div class="form-floating my-3">
-                                            <input formControlName="email" type="email" class="form-control" id="floatingInput"
-                                                placeholder="E-mail">
-    
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="form-floating">
-                                                    <input formControlName="password" type="password" class="form-control" id="floatingPassword"
-                                                        placeholder="Contraseña">
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <div class="form-floating">
-                                                    <input type="password" class="form-control" id="floatingPassword"
-                                                        placeholder="Contraseña">
-    
-                                                </div>
+                                        <div class="col">
+                                            <div class="form-floating">
+                                                <input formControlName="last_name" type="text" class="form-control"
+                                                    id="floatingInput" placeholder="Apellidos">
+
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="card-link btn btn-dark">Login</button>
-                                </fieldset>
-                            </form>
-                            <!-- <a [routerLink]="['/login']" class="card-link btn btn-secondary">Login</a> -->
-                        </div>
+                                    <div class="form-floating my-3">
+                                        <input formControlName="citizen_code" type="text" class="form-control"
+                                            id="floatingInput" placeholder="Cédula">
+                                    </div>
+
+                                    <div class="form-floating my-3">
+                                        <input formControlName="phone_number" type="text" class="form-control"
+                                            id="floatingInput" placeholder="Número celular">
+                                    </div>
+                                    <div class="form-floating my-3">
+                                        <input formControlName="email" type="email" class="form-control"
+                                            id="floatingInput" placeholder="Correo electrónico">
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-floating">
+                                                <input formControlName="password" type="password" class="form-control"
+                                                    id="floatingPassword" placeholder="Contraseña">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-floating">
+                                                <input type="password" class="form-control" id="floatingPassword"
+                                                    placeholder="Repetir contraseña">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="card-link btn btn-dark">Registrarme</button>
+                            </fieldset>
+                        </form>
+                        <!-- <a [routerLink]="['/login']" class="card-link btn btn-secondary">Login</a> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,7 +89,9 @@
         <div class="col xcard xbg-dark text-dark">
             <h1 class="card-title">Problemas con tus finanzas?</h1>
             <h6 class="card-title">Cambia tus finanzas, transforma tu vida</h6>
-            <p class="xp-2 text-center">Las finanzas personales se refieren al manejo y administración de dinero y bienes de un individuo o familia. Es decir, la administración de todo tu dinero: tus ingresos, tus gastos, bienes materiales, fondos de ahorro, fondos de inversión, seguros, créditos, etc.</p>
+            <p class="xp-2 text-center">Las finanzas personales se refieren al manejo y administración de dinero y
+                bienes de un individuo o familia. Es decir, la administración de todo tu dinero: tus ingresos, tus
+                gastos, bienes materiales, fondos de ahorro, fondos de inversión, seguros, créditos, etc.</p>
         </div>
     </div>
     <div class="mt-4 text-center text-white">
@@ -90,37 +101,38 @@
     <div class="row h-100">
         <div class="col">
             <div class="col d-flex justify-content-center">
-                    <div class="xcard card-body xbg-dark text-center">
-                        <h1 class="card-title text-dark">Dejanos un comentario</h1>
-                        <p class="card-text">
-                        <fieldset>
-                            <div class="form-group form-floating">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="Nombre">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="floatingInput"
-                                                placeholder="Apellido">
-                                        </div>
+                <div class="xcard card-body xbg-dark text-center">
+                    <h1 class="card-title text-dark">Dejanos un comentario</h1>
+                    <p class="card-text">
+                    <form [formGroup]="commentsForm">
+                        <div class="form-group form-floating">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingInput" placeholder="Nombre"
+                                            formControlName="name">
                                     </div>
                                 </div>
-                                <div class="form-floating my-3">
-                                    <input type="email" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com">
-                                </div>
-                                <div class="form-floating my-3">
-                                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                                <div class="col">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            placeholder="Apellido" formControlName="last_name">
+                                    </div>
                                 </div>
                             </div>
-                        </fieldset>
-                        <a  class="card-link btn btn-dark">Enviar</a>
-                        <!-- <a [routerLink]="['/login']" class="card-link btn btn-secondary">Login</a> -->
-                    </div>
+                            <div class="form-floating my-3">
+                                <input type="email" class="form-control" id="floatingInput"
+                                    placeholder="Correo electrónico" formControlName="email">
+                            </div>
+                            <div class="form-floating my-3">
+                                <textarea class="form-control" id="exampleTextarea" rows="3" formControlName="content"
+                                    placeholder="Ingresa aquí tu comentario"></textarea>
+                            </div>
+                        </div>
+                        <a class="card-link btn btn-dark" (click)="enviarComentario()">Enviar</a>
+                    </form>
+                    <!-- <a [routerLink]="['/login']" class="card-link btn btn-secondary">Login</a> -->
+                </div>
             </div>
         </div>
     </div>

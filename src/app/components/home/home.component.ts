@@ -1,6 +1,8 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 import { LoginService } from './services/login.service';
 
@@ -11,98 +13,115 @@ import { LoginService } from './services/login.service';
 })
 export class HomeComponent implements OnInit {
 
-  planes = [   
-    {
-      name:'ropa', expected_amount:1000, real_cost:1500
-    }
-  ];
+  @ViewChild("modalCrearIngresos") modalCrearIngresos: ElementRef;
+  @ViewChild("modalCrearGasto") modalCrearGasto: ElementRef;
+  private modalRef;
 
-  detalles = [
-    {
-      name:'ropa', costo:1000, fecha:'7/12/2021'
-    }
-  ]
+  crearIngresosForm: FormGroup;
+  crearGastoForm: FormGroup;
 
-  detalle_actual:any;
+  planes;
+
+  detalles;
+
+  detalle_actual: any;
   show_detalle = false;
-  option:any;
+  option: any;
 
 
-  constructor(protected loginService: LoginService, private router: Router) {  }
+  constructor(
+    protected loginService: LoginService,
+    private router: Router,
+    private modalService: NgbModal,
+  ) { }
 
   ngOnInit(): void {
-
-    if(localStorage.getItem('token') == undefined){
+    if (localStorage.getItem('token') == undefined) {
       this.router.navigate(['/Login'])
-    }
-  
-    let token = localStorage.getItem('token');
-    //const Authorization = `Authorization : Bearer ${token}`;
-    if (!!token )
-    {
-      let headers =new HttpHeaders({ 'authorization': 'Basic ' + token })
-      this.option = { headers: headers };
-      this.loginService.getFinance(this.option).subscribe( value => {
-        //planes.push(value);
-        console.log(value);
-        
-      })
-
+    } else {
+      this.getFinance();
+      this.construirFormularioCrearIngreso();
+      this.construirFormularioCrearGasto();
     }
   }
 
-  planClick(plan){
-    this.show_detalle = !this.show_detalle
-    this.detalle_actual = plan
-    
-    if (!!this.option )
-    {
-      this.loginService.getDetalle(this.option, plan.id).subscribe( value => {
-        //planes.push(value);
-        console.log(value);
-        
-      })
-
-    }
+  getFinance(): void {
+    this.loginService.getFinance().subscribe(value => {
+      this.planes = value['data'];
+    })
   }
 
-  logout(){
+  construirFormularioCrearIngreso() {
+    this.crearIngresosForm = new FormGroup({
+      name: new FormControl('', [Validators.required,]),
+      expected_amount: new FormControl('', [Validators.required,])
+    })
+  }
+
+  construirFormularioCrearGasto() {
+    this.crearGastoForm = new FormGroup({
+      name: new FormControl('', [Validators.required,]),
+      amount_cost: new FormControl('', [Validators.required,]),
+      finance_id: new FormControl('', [Validators.required,])
+    })
+  }
+
+  planClick(plan) {
+    if (this.show_detalle) {
+      if (this.detalle_actual == plan) {
+        this.show_detalle = !this.show_detalle
+      } else {
+        this.detalle_actual = plan
+        this.detalles = plan['costs'];
+      }
+    } else {
+      this.show_detalle = !this.show_detalle
+    }
+
+
+  }
+
+  public openCrearIngresosModal(): void {
+    this.modalRef = this.modalService.open(this.modalCrearIngresos, {
+      size: 'm',
+      centered: true,
+      backdrop: true,
+      animation: true,
+      keyboard: false
+    })
+  }
+
+  public openCrearGastoModal(): void {
+    this.crearGastoForm.controls['finance_id'].setValue(this.detalle_actual['id'])
+    this.modalRef = this.modalService.open(this.modalCrearGasto, {
+      size: 'm',
+      centered: true,
+      backdrop: true,
+      animation: true,
+      keyboard: false
+    })
+  }
+
+  public crearIngresos(): void {
+    this.loginService.postFinance(this.crearIngresosForm.value).subscribe(res => {
+      this.getFinance();
+    })
+  }
+
+  public crearGasto(): void {
+    this.loginService.postGasto(this.crearGastoForm.value).subscribe(res => {
+      this.getFinance();
+    })
+  }
+
+  public eliminarPlan(plan) {
+    this.loginService.deleteFinance(plan.id).subscribe(res => {
+      this.getFinance();
+    })
+  }
+
+  logout() {
     localStorage.clear()
     this.router.navigate(['/Login'])
-  }
-
-  createNewPlan(){
-    Swal.fire({
-      title: 'Submit your Github username',
-      input: 'text',
-      inputAttributes: {
-        autocapitalize: 'off'
-      },
-      showCancelButton: true,
-      confirmButtonText: 'Look up',
-      showLoaderOnConfirm: true,
-      preConfirm: (login) => {
-        return fetch(`//api.github.com/users/${login}`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(response.statusText)
-            }
-            return response.json()
-          })
-          .catch(error => {
-            Swal.showValidationMessage(
-              `Request failed: ${error}`
-            )
-          })
-      },
-      allowOutsideClick: () => !Swal.isLoading()
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: `${result.value.login}'s avatar`,
-          imageUrl: result.value.avatar_url
-        })
-      }
-    })
   }
 }

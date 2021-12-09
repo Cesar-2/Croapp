@@ -14,21 +14,34 @@ export class LoginService {
 
   constructor(private https: HttpClient) {
     this.httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-   }
+  }
 
 
   public auth(body): Observable<any> {
-    return this.https.post<any>(environment.endpoint + "user/login/", body )
+    return this.https.post<any>(environment.endpoint + "user/login", body)
 
   }
 
-  public getFinance(header){
-    return this.https.get(environment.endpoint + "finance/finances/", header)
+  public getFinance() {
+    return this.https.get(environment.endpoint + "finance/finances")
   }
 
-  public getDetalle(header, id){
-    return this.https.get(environment.endpoint + "finance/details/" + id, header)
+  public postFinance(body): Observable<any> {
+    return this.https.post(environment.endpoint + "finance/finances", body);
   }
+
+  public getDetalle(id) {
+    return this.https.get(environment.endpoint + "finance/details/" + id)
+  }
+
+  public deleteFinance(id) {
+    return this.https.delete(environment.endpoint + "finance/finances" + id);
+  }
+
+  public postGasto(body) {
+    return this.https.post(environment.endpoint + "finance/cost", body);
+  }
+
 }

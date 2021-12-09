@@ -13,10 +13,10 @@ export class NavComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(protected loginService: LoginService, private router: Router) {  }
-  
+  constructor(protected loginService: LoginService, private router: Router) { }
+
   ngOnInit(): void {
-    if(localStorage.getItem('token') != undefined){
+    if (localStorage.getItem('token') != undefined) {
       this.router.navigate(['/Home'])
     }
     this.constructForm();
@@ -24,28 +24,30 @@ export class NavComponent implements OnInit {
   constructForm() {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required]),
+      keep_logged_in: new FormControl(true, [Validators.required])
     })
   }
 
-  runAuth(){ 
+  runAuth() {
     if (this.loginForm.valid) {
       this.loginService.auth(this.loginForm.value).subscribe(
         value => {
-          console.log(value);
-          //this.router.navigate(['/Home']);
+          this.alertErrorSesion('Bienvenido');
+          localStorage.setItem("token", value['token'])
+          this.router.navigate(['/Home']);
         },
         error => {
           this.alertErrorSesion("contraseña incorrecta");
         }
       )
     }
-    else{
+    else {
       this.alertErrorSesion("Formulario invalido");
     }
   }
 
-  alertErrorSesion(message){
+  alertErrorSesion(message) {
     Swal.fire(message)
   }
 }
