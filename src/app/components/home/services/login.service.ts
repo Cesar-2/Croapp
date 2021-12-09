@@ -37,7 +37,11 @@ export class LoginService {
   }
 
   public deleteFinance(id) {
-    return this.https.delete(environment.endpoint + "finance/finances" + id);
+    return this.https.delete(environment.endpoint + "finance/finances?id=" + id);
+  }
+
+  public deleteGasto(id) {
+    return this.https.delete(environment.endpoint + "finance/cost?id=" + id);
   }
 
   public postGasto(body) {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SignupService } from '../login/services/signup.service';
 import Swal from 'sweetalert2';
 import { CommentService } from './services/comment.service';
+import { LoginService } from '../home/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     protected signUpService: SignupService,
     private router: Router,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private loginService: LoginService
   ) { }
 
   ngOnInit(): void {
@@ -46,8 +48,13 @@ export class LoginComponent implements OnInit {
     if (this.signUpForm.valid) {
       this.signUpService.register(this.signUpForm.value).subscribe(
         value => {
-          this.alertErrorSesion('Bienvenido');
+          const nombre = value['user']['first_name'] + ' ' + value['user']['last_name']
+          this.alertErrorSesion('Bienvenido ' + nombre);
           localStorage.setItem("token", value['token'])
+          localStorage.setItem(
+            "username",
+            nombre
+          )
           this.router.navigate(['/Home']);
 
         },

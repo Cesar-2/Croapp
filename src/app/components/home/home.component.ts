@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit {
   show_detalle = false;
   option: any;
 
+  username;
+
 
   constructor(
     protected loginService: LoginService,
@@ -42,6 +44,7 @@ export class HomeComponent implements OnInit {
       this.getFinance();
       this.construirFormularioCrearIngreso();
       this.construirFormularioCrearGasto();
+      this.username = localStorage.getItem('username')
     }
   }
 
@@ -96,23 +99,43 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  public closeModal(): void {
+    this.modalRef.dismiss();
+  }
+
   public crearIngresos(): void {
     this.loginService.postFinance(this.crearIngresosForm.value).subscribe(res => {
       this.getFinance();
+      this.closeModal();
+      this.crearIngresosForm.reset();
     })
   }
 
   public crearGasto(): void {
     this.loginService.postGasto(this.crearGastoForm.value).subscribe(res => {
+      let gasto = this.crearGastoForm.value;
       this.getFinance();
-      this.detalle_actual = this.planes.find(p => p.id === this.detalle_actual);
-      this.detalles = this.detalle_actual['costs'];
+      this.detalle_actual = this.planes.find(p => p.id === this.detalle_actual.id);
+      gasto['id'] = res['cost'];
+      this.detalles.push(gasto);
+      this.closeModal();
+      this.crearGastoForm.reset();
     })
   }
 
   public eliminarPlan(plan) {
+    this.detalle_actual = null;
+    this.show_detalle = false;
     this.loginService.deleteFinance(plan.id).subscribe(res => {
       this.getFinance();
+    })
+  }
+
+  public eliminarGasto(gasto) {
+    this.loginService.deleteGasto(gasto.id).subscribe(res => {
+      this.getFinance();
+      console.log('index', this.detalles.indexOf(gasto));
+      this.detalles.splice(this.detalles.indexOf(gasto), 1);
     })
   }
 

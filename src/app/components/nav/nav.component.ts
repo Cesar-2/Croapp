@@ -33,8 +33,10 @@ export class NavComponent implements OnInit {
     if (this.loginForm.valid) {
       this.loginService.auth(this.loginForm.value).subscribe(
         value => {
-          this.alertErrorSesion('Bienvenido');
+          const nombre = value['user']['first_name'] + ' ' + value['user']['last_name']
+          this.alertErrorSesion('Bienvenido ' + nombre);
           localStorage.setItem("token", value['token'])
+          localStorage.setItem("username", nombre)
           this.router.navigate(['/Home']);
         },
         error => {
