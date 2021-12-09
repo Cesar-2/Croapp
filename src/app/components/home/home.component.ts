@@ -67,18 +67,12 @@ export class HomeComponent implements OnInit {
   }
 
   planClick(plan) {
-    if (this.show_detalle) {
-      if (this.detalle_actual == plan) {
-        this.show_detalle = !this.show_detalle
-      } else {
-        this.detalle_actual = plan
-        this.detalles = plan['costs'];
-      }
+    if (this.show_detalle && this.detalle_actual != plan) {
+      this.detalle_actual = plan
+      this.detalles = plan['costs'];
     } else {
       this.show_detalle = !this.show_detalle
     }
-
-
   }
 
   public openCrearIngresosModal(): void {
@@ -111,6 +105,8 @@ export class HomeComponent implements OnInit {
   public crearGasto(): void {
     this.loginService.postGasto(this.crearGastoForm.value).subscribe(res => {
       this.getFinance();
+      this.detalle_actual = this.planes.find(p => p.id === this.detalle_actual);
+      this.detalles = this.detalle_actual['costs'];
     })
   }
 

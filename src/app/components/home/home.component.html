@@ -168,36 +168,32 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-body" *ngIf="show_detalle">
-                        <div *ngIf="detalle_actual; else noDetails">
-                            <h1>{{detalle_actual.name}}</h1>
-                            <button type="button" class="btn btn-primary m-2"
-                                (click)="openCrearGastoModal()">Agregar</button>
-                            <table class="table table-hover my-2">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center align-middle" scope="col">Nombre</th>
-                                        <th class="text-center align-middle" scope="col">Costo</th>
-                                        <th class="text-center align-middle" scope="col">Fecha</th>
-                                        <th class="text-center align-middle" scope="col">Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody *ngFor="let detalle of detalles">
-                                    <tr>
-                                        <td class="text-center align-middle">{{detalle.name}}</td>
-                                        <td class="text-center align-middle"><span
-                                                class="badge rounded-pill bg-success">${{detalle.costo}}</span></td>
-                                        <td class="text-center align-middle"><span
-                                                class="badge rounded-pill bg-light">{{detalle.fecha}}</span></td>
-                                        <td class="text-center align-middle" scope="row"><button type="button"
-                                                class="btn btn-outline-danger">Eliminar</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <ng-template #noDetails class="card-body">
-                            <h1>No hay detalles</h1>
-                        </ng-template>
+                    <div class="card-body" *ngIf="show_detalle && detalle_actual">
+
+                        <h1>{{detalle_actual.name}}</h1>
+                        <button type="button" class="btn btn-primary m-2"
+                            (click)="openCrearGastoModal()">Agregar</button>
+                        <table class="table table-hover my-2">
+                            <thead>
+                                <tr>
+                                    <th class="text-center align-middle" scope="col">Nombre</th>
+                                    <th class="text-center align-middle" scope="col">Costo</th>
+                                    <th class="text-center align-middle" scope="col">Fecha</th>
+                                    <th class="text-center align-middle" scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let detalle of detalles">
+                                <tr>
+                                    <td class="text-center align-middle">{{detalle.name}}</td>
+                                    <td class="text-center align-middle"><span
+                                            class="badge rounded-pill bg-success">${{detalle.costo}}</span></td>
+                                    <td class="text-center align-middle"><span
+                                            class="badge rounded-pill bg-light">{{detalle.fecha}}</span></td>
+                                    <td class="text-center align-middle" scope="row"><button type="button"
+                                            class="btn btn-outline-danger">Eliminar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
