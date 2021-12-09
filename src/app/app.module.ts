@@ -11,6 +11,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './core/token.interceptor';
+import { MisionComponent } from './components/mision/mision.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TokenInterceptor } from './core/token.interceptor';
     NavComponent,
     FooterComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    MisionComponent
   ],
   imports: [
     BrowserModule,
